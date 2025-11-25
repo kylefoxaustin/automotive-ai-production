@@ -1,0 +1,9 @@
+FROM python:3.10-slim
+
+WORKDIR /logs
+
+RUN pip install tensorboard
+
+EXPOSE 6006
+
+CMD ["tensorboard", "--logdir=/logs", "--host=0.0.0.0"]

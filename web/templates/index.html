@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automotive Body Control AI - Production</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Automotive Body Control AI</h1>
+            <p>Production Training & Deployment System</p>
+        </header>
+        
+        <div class="dashboard">
+            <!-- System Status -->
+            <div class="panel">
+                <h2>System Status</h2>
+                <div id="system-status"></div>
+            </div>
+            
+            <!-- Training Control -->
+            <div class="panel">
+                <h2>Training Control</h2>
+                <select id="cost-profile">
+                    <option value="balanced">Balanced</option>
+                    <option value="safety_first">Safety First</option>
+                    <option value="comfort">Comfort Priority</option>
+                    <option value="eco">Eco Mode</option>
+                    <option value="longevity">Longevity</option>
+                </select>
+                <input type="number" id="epochs" placeholder="Epochs" value="100">
+                <button id="trainBtn" onclick="startTraining()">Start Training</button>
+            </div>
+            
+            <!-- Real-time Metrics -->
+            <div class="panel full-width">
+                <h2>Training Progress</h2>
+                <canvas id="training-chart"></canvas>
+            </div>
+            
+            <!-- CAN Bus Interface -->
+            <div class="panel">
+                <h2>CAN Bus</h2>
+                <button onclick="connectCAN()">Connect</button>
+                <div id="can-status">Disconnected</div>
+            </div>
+            
+            <!-- Model Export -->
+            <div class="panel">
+                <h2>Export Model</h2>
+                <button onclick="exportModel('onnx')">Export ONNX</button>
+                <button onclick="exportModel('tensorrt')">Export TensorRT</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
